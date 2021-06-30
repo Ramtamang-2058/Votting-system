@@ -1,0 +1,26 @@
+API documentation:
+
+REQUEST: GET
+PATH: localhost:8000/about/api/get_team_leads/
+--> Returns all the team member who are leads and have been approved by admins.
+
+REQUEST: GET
+PATH: localhost:8000/about/api/get_team_members/
+--> Returns all the team member who are members and have been approved by admins.
+
+REQUEST: POST
+PATH: localhost:8000/about/api/post_members/
+--> Post new team members to the database.
+--> Fields:
+    1) province: String
+    2) full_name: String
+    3) position: String
+    4) primary_contact: String
+    5) secondary_contact: String
+    6) qualifications: String
+    7) resume: File
+    8) profile_picture: File
+
+REQUEST: GET
+PATH: localhost:8000/about/api/get_organization/
+--> Gets the list of organization
