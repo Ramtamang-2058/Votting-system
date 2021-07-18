@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Team, Organization
+from .models import Team, Organization, Hospital, Equipment
 
 
 class TeamSerializer(serializers.ModelSerializer):
@@ -105,4 +105,84 @@ class TeamNepaliSerializer(serializers.ModelSerializer):
             'created_date',
             'edited_date',
         ]
+
+class HospitalEnglishSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Hospital
+        fields = [
+            'id',
+            'name',
+            'contact_number',
+            'contact_email',
+            'province',
+            'address',
+            'created_date',
+            'edited_date'
+        ]
+
+class HospitalNepaliSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(source='name_np')
+    contact_number = serializers.CharField(source='contact_number_np')
+    contact_email = serializers.CharField(source='contact_email_np')
+    province = serializers.CharField(source='province_np')
+    address = serializers.CharField(source='address_np')
+
+    class Meta:
+        model = Hospital
+        fields = [
+            'id',
+            'name',
+            'contact_number',
+            'contact_email',
+            'province',
+            'address',
+            'created_date',
+            'edited_date'
+        ]
+
+
+class EquipmentEnglishSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Equipment
+        fields = [
+            'id',
+            'hospital',
+            'equipment_type',
+            'unit',
+            'model_number',
+            'company_name',
+            'suppliers',
+            'remarks',
+            'created_date',
+            'edited_date'
+        ]
+
+class EquipmentNepaliSerializer(serializers.ModelSerializer):
+    equipment_type = serializers.CharField(source='equipment_type_np')
+    unit = serializers.CharField(source='unit_np')
+    company_name = serializers.CharField(source='company_name_np')
+    suppliers = serializers.CharField(source='suppliers_np')
+    remarks = serializers.CharField(source='remarks_np')
+    model_number = serializers.CharField(source='model_number_np')
+
+    class Meta:
+        model = Equipment
+        fields = [
+            'id',
+            'hospital',
+            'equipment_type',
+            'unit',
+            'model_number',
+            'company_name',
+            'suppliers',
+            'remarks',
+            'created_date',
+            'edited_date'
+        ]
+
+
+
+
+
+
 

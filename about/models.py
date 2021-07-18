@@ -57,3 +57,44 @@ class Organization(models.Model):
     contact_number_np = models.CharField(max_length=14, null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     edited_date = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return self.title
+
+
+class Hospital(models.Model):
+    name = models.CharField(max_length=255)
+    contact_number = models.CharField(max_length=14, null=True, blank=True)
+    contact_email = models.CharField(max_length=255, null=True, blank=True)
+    province = models.CharField(max_length=14, null=True, blank=True)
+    address = models.CharField(max_length=14, null=True, blank=True)
+    name_np = models.CharField(max_length=255, null=True, blank=True)
+    contact_number_np = models.CharField(max_length=14, null=True, blank=True)
+    contact_email_np = models.CharField(max_length=255, null=True, blank=True)
+    province_np = models.CharField(max_length=14, null=True, blank=True)
+    address_np = models.CharField(max_length=14, null=True, blank=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    edited_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name 
+
+class Equipment(models.Model):
+    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
+    equipment_type = models.CharField(max_length=255)
+    unit = models.IntegerField(null=True, blank=True)
+    model_number = models.CharField(max_length=255, null=True, blank=True)
+    company_name = models.CharField(max_length=255, null=True, blank=True)
+    suppliers = models.CharField(max_length=255, null=True, blank=True)
+    remarks = models.CharField(max_length=255, null=True, blank=True)
+    equipment_type_np = models.CharField(max_length=255, null=True, blank=True)
+    unit_np = models.IntegerField(null=True, blank=True)
+    model_number_np = models.CharField(max_length=255, null=True, blank=True)
+    company_name_np = models.CharField(max_length=255, null=True, blank=True)
+    suppliers_np = models.CharField(max_length=255, null=True, blank=True)
+    remarks_np = models.CharField(max_length=255, null=True, blank=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    edited_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.equipment_type 

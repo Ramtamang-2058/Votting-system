@@ -24,3 +24,20 @@ PATH: localhost:8000/about/api/post_members/
 REQUEST: GET
 PATH: localhost:8000/about/api/get_organization/
 --> Gets the list of organization
+
+REQUEST: GET/POST/PUT/DELETE
+PATH: localhost:8000/about/api/hospital/en/
+--> get list of english hospital data
+
+REQUEST: GET/POST/PUT/DELETE
+PATH: localhost:8000/about/api/hospital/np/
+--> get list of nepali hospital data
+
+
+REQUEST: GET/POST/PUT/DELETE
+PATH: localhost:8000/about/api/equipment/en/
+--> get list of english hospital equipment data
+
+REQUEST: GET/POST/PUT/DELETE
+PATH: localhost:8000/about/api/equipment/np/
+--> get list of nepali hospital equipment data
