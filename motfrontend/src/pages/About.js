@@ -10,7 +10,7 @@ import MainPage from '../aboutcomponents/MainPage'
 import Organization from '../aboutcomponents/Organization'
 import Lead from '../aboutcomponents/Lead'
 import Member from '../aboutcomponents/Member'
-import ApplyMember from '../aboutcomponents/ApplyMember'
+import Contact from '../aboutcomponents/Contact'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -62,13 +62,13 @@ export default function About() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" color='primary'>
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" centered>
           <Tab label="Main Page" {...a11yProps(0)} />
           <Tab label="Organization" {...a11yProps(1)} />
           <Tab label="Leads" {...a11yProps(2)} />
           <Tab label="Members" {...a11yProps(3)} />
-          <Tab label="Apply Membership" {...a11yProps(4)} />
+          <Tab label="Contact Us" {...a11yProps(4)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0} >
@@ -84,7 +84,7 @@ export default function About() {
         <Member/>
       </TabPanel>
       <TabPanel value={value} index={4}>
-        <ApplyMember/>
+        <Contact/>
       </TabPanel>
     </div>
   );
