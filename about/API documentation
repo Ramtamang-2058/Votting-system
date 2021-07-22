@@ -1,15 +1,26 @@
 API documentation:
 
 REQUEST: GET
-PATH: localhost:8000/about/api/get_team_leads/
---> Returns all the team member who are leads and have been approved by admins.
+PATH: http://missionoxygenteam.org/about/api/get_team_leads/en/
+--> Returns all the team member who are leads and have been approved by admins. (in english)
 
 REQUEST: GET
-PATH: localhost:8000/about/api/get_team_members/
---> Returns all the team member who are members and have been approved by admins.
+PATH: http://missionoxygenteam.org/about/api/get_team_leads/np/
+--> Returns all the team member who are leads and have been approved by admins.(in nepali)
+
+
+REQUEST: GET
+PATH: http://missionoxygenteam.org/about/api/get_team_members/en/
+--> Returns all the team member who are members and have been approved by admins. (in english)
+
+
+REQUEST: GET
+PATH: http://missionoxygenteam.org/about/api/get_team_members/np/
+--> Returns all the team member who are members and have been approved by admins. (in nepali)
+
 
 REQUEST: POST
-PATH: localhost:8000/about/api/post_members/
+PATH: http://missionoxygenteam.org/about/api/post_members/
 --> Post new team members to the database.
 --> Fields:
     1) province: String
@@ -22,22 +33,26 @@ PATH: localhost:8000/about/api/post_members/
     8) profile_picture: File
 
 REQUEST: GET
-PATH: localhost:8000/about/api/get_organization/
---> Gets the list of organization
+PATH: http://missionoxygenteam.org/about/api/get_organization/en/
+--> Gets the list of organization (in english)
+
+REQUEST: GET
+PATH: http://missionoxygenteam.org/about/api/get_organization/np/
+--> Gets the list of organization (in nepali)
 
 REQUEST: GET/POST/PUT/DELETE
-PATH: localhost:8000/about/api/hospital/en/
---> get list of english hospital data
+PATH: http://missionoxygenteam.org/about/api/hospital/en/
+--> get list of english hospital data 
 
 REQUEST: GET/POST/PUT/DELETE
-PATH: localhost:8000/about/api/hospital/np/
+PATH: http://missionoxygenteam.org/about/api/hospital/np/
 --> get list of nepali hospital data
 
 
 REQUEST: GET/POST/PUT/DELETE
-PATH: localhost:8000/about/api/equipment/en/
+PATH: http://missionoxygenteam.org/about/api/equipment/en/
 --> get list of english hospital equipment data
 
 REQUEST: GET/POST/PUT/DELETE
-PATH: localhost:8000/about/api/equipment/np/
+PATH: http://missionoxygenteam.org/about/api/equipment/np/
 --> get list of nepali hospital equipment data
