@@ -10,7 +10,9 @@ from .views import (TeamLeadsView,
                     HospitalEnglishView,
                     HospitalNepaliView,
                     EquipmentEnglishView,
-                    EquipmentNepaliView)
+                    EquipmentNepaliView,
+                    ResourceEnglishView,
+                    ResourceNepaliView)
 
 route = routers.DefaultRouter()
 route.register('post_members', TeamView)
@@ -24,6 +26,8 @@ route.register('hospital/en', HospitalEnglishView)
 route.register('hospital/np', HospitalNepaliView)
 route.register('equipment/en', EquipmentEnglishView)
 route.register('equipment/np', EquipmentNepaliView)
+route.register('resource/en', ResourceEnglishView)
+route.register('resource/np', ResourceNepaliView)
 
 
 

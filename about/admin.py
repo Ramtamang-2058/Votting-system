@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Team, Organization, Hospital, Equipment
+from .models import Team, Organization, Hospital, Equipment, Resource
 
 class TeamAdmin(admin.ModelAdmin):
     list_display=('full_name', 'province', 'member_type', 'position', 'primary_contact','is_approved')
@@ -42,9 +42,24 @@ class EquipmentAdmin(admin.ModelAdmin):
     fieldsets=()
     ordering=('created_date',)
 
+class ResourcesAdmin(admin.ModelAdmin):
+    list_display=('author', 'title', 'category', 'created_date')
+    search_fields=('author', 'title', 'category')
+    readonly_fields=('created_date', 'edited_date')
+
+    filter_horizontal=()
+    list_filter=()
+    fieldsets=()
+    ordering=('created_date',)
+
+
+
+
+
 
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Organization, OrganizationAdmin)
 admin.site.register(Hospital, HospitalAdmin)
 admin.site.register(Equipment, EquipmentAdmin)
+admin.site.register(Resource, ResourcesAdmin)
 

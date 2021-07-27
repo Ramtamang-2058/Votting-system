@@ -7,10 +7,12 @@ from .serializers import (TeamSerializer,
                         HospitalEnglishSerializer,
                         HospitalNepaliSerializer,
                         EquipmentEnglishSerializer,
-                        EquipmentNepaliSerializer
+                        EquipmentNepaliSerializer,
+                        ResourceEnglishSerializer,
+                        ResourceNepaliSerializer
                         )
 from rest_framework import viewsets
-from .models import Team, Organization, Hospital, Equipment
+from .models import Team, Organization, Hospital, Equipment, Resource
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny
 
@@ -69,6 +71,18 @@ class EquipmentEnglishView(viewsets.ModelViewSet):
 class EquipmentNepaliView(viewsets.ModelViewSet):
     queryset = Equipment.objects.all()
     serializer_class = EquipmentNepaliSerializer
+    ordering = ['-id']
+    
+
+class ResourceEnglishView(viewsets.ModelViewSet):
+    queryset = Resource.objects.all()
+    serializer_class = ResourceEnglishSerializer
+    ordering = ['-id']
+    
+
+class ResourceNepaliView(viewsets.ModelViewSet):
+    queryset = Resource.objects.all()
+    serializer_class = ResourceNepaliSerializer
     ordering = ['-id']
     
 

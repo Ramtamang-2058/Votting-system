@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Team, Organization, Hospital, Equipment
+from .models import Team, Organization, Hospital, Equipment, Resource
 
 
 class TeamSerializer(serializers.ModelSerializer):
@@ -179,6 +179,58 @@ class EquipmentNepaliSerializer(serializers.ModelSerializer):
             'created_date',
             'edited_date'
         ]
+
+class ResourceEnglishSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Resource
+        fields = [
+            'id',
+            'author',
+            'title',
+            'category',
+            'category',
+            'content',
+            'video_link',
+            'slug',
+            'image',
+            'summary',
+            'created_date',
+            'edited_date'
+        ]
+
+
+class ResourceNepaliSerializer(serializers.ModelSerializer):
+    title = serializers.CharField(source='title_np')
+    category = serializers.CharField(source='category_np')
+    content = serializers.CharField(source='content_np')
+    slug = serializers.CharField(source='slug_np')
+    summary = serializers.CharField(source='summary_np')
+
+    class Meta:
+        model = Resource
+        fields = [
+            'id',
+            'author',
+            'title',
+            'category',
+            'category',
+            'content',
+            'video_link',
+            'slug',
+            'image',
+            'summary',
+            'created_date',
+            'edited_date'
+        ]
+
+
+
+
+
+
+
+
+
 
 
 

@@ -56,3 +56,12 @@ PATH: http://missionoxygenteam.org/about/api/equipment/en/
 REQUEST: GET/POST/PUT/DELETE
 PATH: http://missionoxygenteam.org/about/api/equipment/np/
 --> get list of nepali hospital equipment data
+
+
+REQUEST: GET/POST/PUT/DELETE
+PATH: http://missionoxygenteam.org/about/api/resource/en/
+--> get list of english resource data
+
+REQUEST: GET/POST/PUT/DELETE
+PATH: http://missionoxygenteam.org/about/api/resource/np/
+--> get list of nepali resource data

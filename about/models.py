@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+
 def upload_about_picture(instance, filename):
     return "about/pictures/{id}_{host_to}/{filename}".format(host_to=instance.full_name, filename=filename, id=instance.id)
 
@@ -10,6 +11,10 @@ def upload_about_resume(instance, filename):
 
 def upload_about_organization_picture(instance, filename):
     return "about/pictures/{id}_{host_to}/{filename}".format(host_to=instance.title, filename=filename, id=instance.id)
+
+
+def upload_resources_image(instance, filename):
+    return "about/resources/{id}_{host_to}/{filename}".format(host_to=instance.title, filename=filename, id=instance.id)
 
 
 class Team(models.Model):
@@ -98,3 +103,29 @@ class Equipment(models.Model):
 
     def __str__(self):
         return self.equipment_type 
+
+
+class Resource(models.Model):
+    category_type = (
+        ('AN', 'announcement'),
+        ('NE', 'news'),
+        ('VI', 'videos'),
+        ('AR', 'articals'),
+    )
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    category = models.CharField(max_length=2, choices=category_type, null=True, blank=True)
+    content = models.CharField(max_length=1024, null=True, blank=True)
+    video_link = models.CharField(max_length=1024, null=True, blank=True)
+    slug = models.CharField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(default='default.jpg', upload_to=upload_resources_image, max_length=1024, null=True, blank=True)
+    summary = models.CharField(max_length=255, null=True, blank=True)
+    title_np = models.CharField(max_length=255, null=True, blank=True)
+    content_np = models.CharField(max_length=1024, null=True, blank=True)
+    slug_np = models.CharField(max_length=1024, null=True, blank=True)
+    summary_np = models.CharField(max_length=255, null=True, blank=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    edited_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
