@@ -42,7 +42,7 @@ export default function Organization() {
 
   useEffect(() => {
     const getData = async () => {
-      let { data, loading } = await fetchURL(`https://motdev.ran.org.np/about/api/get_organization/${language}/`);
+      let { data, loading } = await fetchURL(`https://missionoxygenteam.org/about/api/get_organization/${language}/`);
       setallMembers(data);
       setloading(loading);
       console.log(data);
@@ -64,7 +64,7 @@ export default function Organization() {
         allMembers.results.map((member, index) => {
 
           return (
-            <Card className={classes.root}>
+            <Card className={classes.root} key={member.id} >
               <CardActionArea onClick={() => window.open('https://' + member.contact_website, '_blank')}>
                 <CardMedia
                   className={classes.media}

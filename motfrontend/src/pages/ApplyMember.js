@@ -8,6 +8,9 @@ import TextField from '@material-ui/core/TextField'
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { postFetchURL } from '../apiComponents/FetchComponent';
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,15 +35,28 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 20,
     display: 'block',
     textAlign: 'center'
+  },
+  languageCss: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  formControl: {
+
+    display:'flex',
+
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2)
   }
 }));
 
+
 export default function ApplyMember() {
   const classes = useStyles();
-  const [province, setProvince] = useState('');
+  const [province, setProvince] = useState('1');
   const [full_name, setFullname] = useState('');
   const [qualifications, setQualifications] = useState('');
-  const [position, setPosition] = useState('');
+  // const [position, setPosition] = useState('');
   const [primary_contact, setPrimary] = useState('');
   const [secondary_contact, setSecondary] = useState('');
   const [email, setEmail] = useState('');
@@ -48,7 +64,7 @@ export default function ApplyMember() {
   const [provinceError, setProvinceError] = useState(false);
   const [fullNameError, setFullNameError] = useState(false);
   const [qualificationsError, setQualificationsError] = useState(false);
-  const [positionError, setPositionError] = useState(false);
+  // const [positionError, setPositionError] = useState(false);
   const [primaryError, setPrimaryError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [descriptionError, setDescriptionError] = useState(false);
@@ -58,7 +74,7 @@ export default function ApplyMember() {
     setFullNameError(false);
     setQualificationsError(false);
     setPrimaryError(false);
-    setPositionError(false);
+    // setPositionError(false);
     setEmailError(false);
     setDescriptionError(false);
 
@@ -66,9 +82,9 @@ export default function ApplyMember() {
 
 
 
-    if (province == '') {
-      setProvinceError(true);
-    }
+    // if (province == '') {
+    //   setProvinceError(true);
+    // }
     if (full_name == '') {
       setFullNameError(true);
     }
@@ -78,9 +94,9 @@ export default function ApplyMember() {
     if (primary_contact == '') {
       setPrimaryError(true);
     }
-    if (position == '') {
-      setPositionError(true);
-    }
+    // if (position == '') {
+    //   setPositionError(true);
+    // }
     if (email == '') {
       setEmailError(true);
     }
@@ -89,7 +105,7 @@ export default function ApplyMember() {
 
     }
 
-    if (province && full_name && qualifications && primary_contact && email && description && position) {
+    if (full_name && qualifications && primary_contact && email && description ) {
 
       const profilePic = document.getElementById('raised-button-img');
       const resumeFile = document.getElementById('raised-button-file');
@@ -105,7 +121,7 @@ export default function ApplyMember() {
         var formData = new FormData();
         formData.append('province', province);
         formData.append('full_name', full_name);
-        formData.append('position', position);
+        // formData.append('position', position);
         formData.append('email', email);
         formData.append('primary_contact', primary_contact);
         formData.append('secondary_contact', secondary_contact);
@@ -113,7 +129,7 @@ export default function ApplyMember() {
         formData.append('description', description);
         formData.append('profile_picture', profilePic.files[0]);
         formData.append('resume', resumeFile.files[0]);
-        postFetchURL('https://motdev.ran.org.np/about/api/post_members/', formData);
+        postFetchURL('https://missionoxygenteam.org/about/api/post_members/', formData);
       }
       // else if ()
 
@@ -140,16 +156,35 @@ export default function ApplyMember() {
     //   console.log(province, province);
     // } 
   }
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    setProvince(event.target.value);
+  };
 
   return (
     <Container size="sm">
       <Card className={classes.root}>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Applicaiton Form
+          <Typography gutterBottom variant="h5" component="h2" color="primary">
+            Application Form
           </Typography>
           <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-            <TextField className={classes.field}
+
+            <FormControl variant="filled" className={classes.formControl}>
+              <InputLabel htmlFor="filled-age-native-simple">
+                Select Province
+              </InputLabel>
+              <Select native value={province} onChange={handleChange}>
+                <option value={"1"}>1</option>
+                <option value={"2"}>2</option>
+                <option value={"3"}>3</option>
+                <option value={"4"}>4</option>
+                <option value={"5"}>5</option>
+                <option value={"6"}>6</option>
+                <option value={"7"}>7</option>
+              </Select>
+            </FormControl>
+            {/* <TextField className={classes.field}
               onChange={(e) => setProvince(e.target.value)}
               label="Province"
               variant="outlined"
@@ -157,7 +192,7 @@ export default function ApplyMember() {
               fullWidth
               required
               error={provinceError}
-            />
+            /> */}
             <TextField className={classes.field}
               onChange={(e) => setFullname(e.target.value)}
               label="Full Name"
@@ -176,7 +211,7 @@ export default function ApplyMember() {
               required
               error={qualificationsError}
             />
-            <TextField className={classes.field}
+            {/* <TextField className={classes.field}
               onChange={(e) => setPosition(e.target.value)}
               label="Position"
               variant="outlined"
@@ -184,7 +219,7 @@ export default function ApplyMember() {
               fullWidth
               required
               error={positionError}
-            />
+            /> */}
             <TextField className={classes.field}
               onChange={(e) => setPrimary(e.target.value)}
               label="Contact Primary"
@@ -212,7 +247,7 @@ export default function ApplyMember() {
             />
             <TextField className={classes.field}
               onChange={(e) => setDescription(e.target.value)}
-              label="Description"
+              label="Describe About Yourself"
               variant="outlined"
               color="secondary"
               multiline
@@ -248,7 +283,7 @@ export default function ApplyMember() {
 
             <Button
               type="submit"
-              color="secondary"
+              color="primary"
               variant="contained"
               endIcon={<KeyboardArrowRightIcon />}>
               Submit

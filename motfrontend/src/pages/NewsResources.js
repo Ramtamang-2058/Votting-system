@@ -60,11 +60,11 @@ export default function NewsResources() {
     <div className={classes.root}>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" centered>
-          <Tab label="Tab 1" {...a11yProps(0)} />
-          <Tab label="Tab 2" {...a11yProps(1)} />
-          <Tab label="Tab 3" {...a11yProps(2)} />
-          <Tab label="Tab 4" {...a11yProps(3)} />
-          <Tab label="Tab 5" {...a11yProps(4)} />
+          <Tab label="Announcement" {...a11yProps(0)} />
+          <Tab label="News" {...a11yProps(1)} />
+          <Tab label="Videos" {...a11yProps(2)} />
+          <Tab label="Articles" {...a11yProps(3)} />
+          <Tab label="Miscellaneous" {...a11yProps(4)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0} >

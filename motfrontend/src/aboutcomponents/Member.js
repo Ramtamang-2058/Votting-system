@@ -55,7 +55,7 @@ export default function Member() {
 
   useEffect(() => {
     const getData = async () => {
-      let { data, loading, dataIndex } = await fetchURL(`https://motdev.ran.org.np/about/api/get_team_members/${language}/`);
+      let { data, loading, dataIndex } = await fetchURL(`https://missionoxygenteam.org/about/api/get_team_members/${language}/`);
       setallMembers(data);
       setdataIndex(dataIndex);
       setloading(loading);

@@ -1,7 +1,6 @@
-import {AppBar,Toolbar,Button,Drawer,List,Divider,ListItem,ListItemText,Typography,useMediaQuery } from '@material-ui/core';
+import {AppBar,Toolbar,Button,Drawer,List,Divider,ListItem,ListItemText,Typography,useMediaQuery,Box } from '@material-ui/core';
 import { Link,NavLink } from 'react-router-dom';
-import { ThemeProvider,makeStyles  } from '@material-ui/core/styles';
-import pink from '@material-ui/core/colors/pink';
+import { makeStyles  } from '@material-ui/core/styles';
 import React from "react";
 import clsx from "clsx";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -11,10 +10,14 @@ const useStyles = makeStyles((theme) => ({
     menuButton: {
         marginRight: theme.spacing(2)
     },
-    title: {
+    logo: {
         flexGrow: 5,
+        height: 60,
+        maxWidth: 180,
+        marginRight: '10px',
     
-    }, 
+    },
+
     list: {
         width: 250,
                
@@ -28,11 +31,25 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
     "&.active": {
-       borderBottom: '3px solid #3b6ba5',
+       borderBottom: '3px solid #0D6199',
     },
     flexGrow:1,
   },
+    
+
 }));
+const defaultProps = {
+
+    style: {
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        width: 180,
+        color: 'white',
+        flexGrow:5,
+    },
+};
+
 
 const Navbar = () => {
 
@@ -66,14 +83,15 @@ const Navbar = () => {
                 <ListItem button component={Link} to="/about" className={classes.mobileNav}>
                     <Typography  color="primary" >About</Typography>
                 </ListItem>
+                <ListItem button component={Link} to="/donation"  className={classes.mobileNav}>
+                    <Typography  color="primary" >Donate</Typography>
+                </ListItem>
                 <ListItem button component={Link} to="/apply"  className={classes.mobileNav}>
-                    <Typography  color="primary" >Apply for Member</Typography>
-                    
+                    <Typography  color="primary" >Join Us</Typography>
                 </ListItem>
                 <ListItem button component={Link} to="/newsresources" className={classes.mobileNav}>
                     <Typography  color="primary" >News & Resources</Typography>
                 </ListItem>
-              
             </List>
             <Divider />
             <List>
@@ -89,12 +107,15 @@ const Navbar = () => {
     <AppBar color='transparent' position="static">
         {matches ? 
             <Toolbar>
-                        
-                            
-                    <Typography variant="h5" className={classes.title} color="primary" gutterBottom>Mission Oxygen Team</Typography>
+                    <Box borderRadius="5%" {...defaultProps} flexGrow={1}>
+                        <img src={'/logo.jpg'} alt="MOT logo" className={classes.logo} />      
+                                     
+                    </Box>   
+                      
                     <Button component={NavLink} exact to="/"  color="primary"  className={classes.button}>Home</Button>
                     <Button component={NavLink} exact to="/about" color="primary" className={classes.button}>About</Button>
-                    <Button component={NavLink} exact to="/apply" color="primary" className={classes.button}>Apply for Member</Button>
+                    <Button component={NavLink} exact to="/donation" color="primary" className={classes.button}>Donate</Button>
+                    <Button component={NavLink} exact to="/apply" color="primary" className={classes.button}>Join Us</Button>
                     <Button component={NavLink} exact to="/newsresources"  color="primary" className={classes.button}>News & Resources</Button>
                     <Button component={NavLink} exact to="/request" variant="contained" className={classes.button} color="primary">Request Help</Button>
                 
@@ -102,7 +123,10 @@ const Navbar = () => {
             </Toolbar> 
         :
             <Toolbar>      
-                    <Typography variant="h5" className={classes.title} color="primary" gutterBottom>Mission Oxygen Team</Typography>
+                    <Box borderRadius="5%" {...defaultProps} flexGrow={1}>
+                        <img src={'/logo.jpg'} alt="MOT logo" className={classes.logo} />      
+                                     
+                    </Box>   
                     <IconButton
                         edge="start"
                         className={classes.menuButton}

@@ -57,7 +57,7 @@ export default function Lead() {
 
   useEffect(() => {
     const getData = async () => {
-      let { data, loading, dataIndex } = await fetchURL(`https://motdev.ran.org.np/about/api/get_team_leads/${language}/`);
+      let { data, loading, dataIndex } = await fetchURL(`https://missionoxygenteam.org/about/api/get_team_leads/${language}/`);
       setallMembers(data);
       setdataIndex(dataIndex);
       setloading(loading);
@@ -93,7 +93,7 @@ export default function Lead() {
       </Typography>}
       {allMembers &&
         allMembers.results.map((member, index) => {
-          console.log(member);
+
 
 
 

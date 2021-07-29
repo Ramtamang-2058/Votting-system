@@ -121,17 +121,7 @@ export default function MainPage() {
         
         </Card>
 
-        <Card className={classes.root}>
-        <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-            Organizations
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, natus dolorum. Quisquam, provident! Dolorum sequi consequatur quisquam temporibus et labore soluta beatae veritatis cupiditate. Ad soluta animi eius deserunt iure.
-            </Typography>
-        </CardContent>
-        
-        </Card>
+
     </div>
   );
 }
