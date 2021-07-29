@@ -52,6 +52,7 @@ class Team(models.Model):
 class Organization(models.Model):
     title = models.CharField(max_length=255)
     logo = models.ImageField(upload_to=upload_about_organization_picture, max_length=1024, null=True, blank=True)
+    category = models.CharField(max_length=255, null=True, blank=True)
     description = models.CharField(max_length=255, null=True, blank=True)
     contact_number = models.CharField(max_length=14, null=True, blank=True)
     contact_email = models.CharField(max_length=255, null=True, blank=True)
