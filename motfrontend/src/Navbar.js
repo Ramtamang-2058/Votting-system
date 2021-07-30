@@ -108,7 +108,7 @@ const Navbar = () => {
         {matches ? 
             <Toolbar>
                     <Box borderRadius="5%" {...defaultProps} flexGrow={1}>
-                        <img src={'/logo.jpg'} alt="MOT logo" className={classes.logo} />      
+                        <img src={'/static/logo.jpg'} alt="MOT logo" className={classes.logo} />      
                                      
                     </Box>   
                       
@@ -124,7 +124,7 @@ const Navbar = () => {
         :
             <Toolbar>      
                     <Box borderRadius="5%" {...defaultProps} flexGrow={1}>
-                        <img src={'/logo.jpg'} alt="MOT logo" className={classes.logo} />      
+                        <img src={'/static/logo.jpg'} alt="MOT logo" className={classes.logo} />      
                                      
                     </Box>   
                     <IconButton

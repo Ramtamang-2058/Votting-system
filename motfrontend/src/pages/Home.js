@@ -22,7 +22,7 @@ const circleProps = {
 const homeProps = {
 
   style: { 
-      backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Oval.png')`,
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/static/Oval.png')`,
     //   backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))`,
       backgroundRepeat:'no-repeat',
       backgroundPosition:'center',
