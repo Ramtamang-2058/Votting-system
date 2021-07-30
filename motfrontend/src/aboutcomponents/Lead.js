@@ -57,7 +57,7 @@ export default function Lead() {
 
   useEffect(() => {
     const getData = async () => {
-      let { data, loading, dataIndex } = await fetchURL(`https://missionoxygenteam.org/about/api/get_team_leads/${language}/`);
+      let { data, loading, dataIndex } = await fetchURL(`http://localhost:8000/about/api/get_team_leads/${language}/`);
       setallMembers(data);
       setdataIndex(dataIndex);
       setloading(loading);

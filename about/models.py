@@ -22,11 +22,17 @@ class Team(models.Model):
         ('L', 'Leads'),
         ('M', 'Members'),
     )
+
+    lead_types_options= (
+        ('P', 'Provincial Lead'),
+        ('T', 'Team Lead')
+    )
     member_type = models.CharField(max_length=1, choices=types, null=True, blank=True)
     # account_from = models.ForeignKey(User, on_delete=models.CASCADE)
     email = models.EmailField()
+    lead_type = models.CharField(max_length=1,default='P', choices=lead_types_options, null=True, blank=True)
     province = models.CharField(max_length=255)
-    profile_picture = models.ImageField(default='default.jpg', upload_to=upload_about_picture, max_length=1024, null=True, blank=True)
+    profile_picture = models.ImageField(upload_to=upload_about_picture, null=True, blank=True)
     full_name = models.CharField(max_length=255)
     position = models.CharField(max_length=255)
     primary_contact = models.CharField(max_length=14)
@@ -50,9 +56,14 @@ class Team(models.Model):
 
 
 class Organization(models.Model):
+    category_type = (
+    ('L', 'Leading'),
+    ('S', 'Support'),
+    ('C', 'Co-Support'),
+    )
     title = models.CharField(max_length=255)
-    logo = models.ImageField(upload_to=upload_about_organization_picture, max_length=1024, null=True, blank=True)
-    category = models.CharField(max_length=255, null=True, blank=True)
+    logo = models.ImageField(upload_to=upload_about_organization_picture, null=True, blank=True)
+    category = models.CharField(max_length=2, choices=category_type, default='C', null=True, blank=True)
     description = models.CharField(max_length=255, null=True, blank=True)
     contact_number = models.CharField(max_length=14, null=True, blank=True)
     contact_email = models.CharField(max_length=255, null=True, blank=True)

@@ -22,7 +22,7 @@ class TeamLeadsView(viewsets.ModelViewSet):
     ordering = ['-id']
 
 class TeamMembersView(viewsets.ModelViewSet):
-    queryset = Team.objects.filter(is_approved=True, member_type='M')
+    queryset = Team.objects.filter(is_approved=True)
     serializer_class = TeamSerializer
     ordering = ['-id']
 
@@ -32,7 +32,7 @@ class TeamLeadsNepaliView(viewsets.ModelViewSet):
     ordering = ['-id']
 
 class TeamMembersNepaliView(viewsets.ModelViewSet):
-    queryset = Team.objects.filter(is_approved=True, member_type='M')
+    queryset = Team.objects.filter(is_approved=True)
     serializer_class = TeamNepaliSerializer
     ordering = ['-id']
 

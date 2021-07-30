@@ -49,7 +49,7 @@ const Footer = () => {
 
             <Box display="flex" justifyContent="center" flexWrap='wrap' bgcolor='#0D6199'>
                 <Box borderRadius="5%" justifyContent='flex-start' {...defaultProps} flexGrow={1} >
-                    <img src={'/logo.jpg'} alt="MOT logo" className={classes.logo} />      
+                    <img src={'/static/logo.jpg'} alt="MOT logo" className={classes.logo} />      
                     <Typography align='justify' variant="body1" color="white" component="p">
                         Bhanimandal near to 12 Basket ,Lalitpur, Nepal opposite to Alka hospital, Lalitpur 44600
                     </Typography>

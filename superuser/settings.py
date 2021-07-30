@@ -106,8 +106,8 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.IsAuthenticated',
     # ],
 
-    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    # 'PAGE_SIZE':12,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE':1000,
 
     'DEFAULT_FILTER_BACKENDS':  (
         'rest_framework.filters.SearchFilter',
@@ -155,13 +155,18 @@ USE_L10N = True
 
 USE_TZ = True
 
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
+# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# MEDIA_URL = 'media/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATIC_ROOT = '/static/'
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_URL = 'static/'
 STATICFILES_DIRS=[
-            os.path.join(BASE_DIR,'motfrontend/build/static'),
+            # os.path.join(BASE_DIR,'media'),
+            os.path.join(BASE_DIR,'motfrontend/build'),
 
 ]
 

@@ -17,6 +17,7 @@ class TeamSerializer(serializers.ModelSerializer):
             'secondary_contact',
             'qualifications',
             'description',
+            'lead_type',
             'resume',
             'is_approved',
             'created_date',
