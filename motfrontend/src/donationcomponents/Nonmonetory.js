@@ -11,7 +11,7 @@ import { ThemeProvider,makeStyles  } from '@material-ui/core/styles';
 const homeProps = {
 
   style: { 
-       backgroundImage: `url('Oval.png')`,
+       backgroundImage: `url('/static/Oval.png')`,
     //   backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))`,
       backgroundRepeat:'no-repeat',
       backgroundPosition:'center',
@@ -89,7 +89,7 @@ const Nonmonetory = () => {
                 <Box borderRadius="0%" {...testProps} >
                     
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/ecg.png'} alt="ecg" className={classes.logo} />   
+                        <img src={'/static/ecg.png'} alt="ecg" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             Bio Tech Donation
                         </Typography>
@@ -99,7 +99,7 @@ const Nonmonetory = () => {
                         <Button variant="default" size="large" color='inherit'  endIcon={<ArrowRightAltIcon />} >Fill Form</Button>
                     </Box>
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/oxygen (2).png'} alt="oxygen" className={classes.logo} />   
+                        <img src={'/static/oxygen (2).png'} alt="oxygen" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             Oxygen Concentrator Donation
                         </Typography>
@@ -109,7 +109,7 @@ const Nonmonetory = () => {
                         <Button variant="default" size="large" color='inherit'  endIcon={<ArrowRightAltIcon />} >Fill Form</Button>
                     </Box>
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/donate (1).png'} alt="donate" className={classes.logo} />   
+                        <img src={'/static/donate (1).png'} alt="donate" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             Large Scale Donation 
                         </Typography>
@@ -119,7 +119,7 @@ const Nonmonetory = () => {
                         <Button variant="default" size="large" color='inherit'  endIcon={<ArrowRightAltIcon />} >Fill Form</Button>
                     </Box>
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/surgery-lamp.png'} alt="lamp" className={classes.logo} />   
+                        <img src={'/static/surgery-lamp.png'} alt="lamp" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             Hospital Requirement 
                         </Typography>
@@ -129,7 +129,7 @@ const Nonmonetory = () => {
                         <Button variant="default" size="large" color='inherit'  endIcon={<ArrowRightAltIcon />} >Fill Form</Button>
                     </Box>
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/oxygen.svg'} alt="oxygen" className={classes.logo} />   
+                        <img src={'/static/oxygen.svg'} alt="oxygen" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             Oxygen Cylinder Donation 
                         </Typography>
@@ -139,7 +139,7 @@ const Nonmonetory = () => {
                         <Button variant="default" size="large" color='inherit'  endIcon={<ArrowRightAltIcon />} >Fill Form</Button>
                     </Box>
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/receive.png'} alt="recieve" className={classes.logo} />   
+                        <img src={'/static/receive.png'} alt="recieve" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             Blood Donations
 
@@ -150,7 +150,7 @@ const Nonmonetory = () => {
                         <Button variant="default" size="large" color='inherit'  endIcon={<ArrowRightAltIcon />} >Fill Form</Button>
                     </Box>
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/receive.png'} alt="recieve" className={classes.logo} />   
+                        <img src={'/static/receive.png'} alt="recieve" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             Others Donations 
                         </Typography>

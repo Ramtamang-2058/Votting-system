@@ -102,7 +102,7 @@ const Monetory = () => {
                 <Box borderRadius="0%" {...testProps} >
                     
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/khalti.svg'} alt="ecg" className={classes.logo} />   
+                        <img src={'/static/khalti.svg'} alt="ecg" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             ID : +977-9849903406
                         </Typography>
@@ -114,7 +114,7 @@ const Monetory = () => {
                         <Button variant="default" size="large" color='inherit'  endIcon={<ArrowRightAltIcon />} >Learn More</Button>
                     </Box>   
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/NIC.png'} alt="ecg" className={classes.logo} />   
+                        <img src={'/static/NIC.png'} alt="ecg" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             ID : 1234567890
 
@@ -127,7 +127,7 @@ const Monetory = () => {
                         <Button variant="default" size="large" color='inherit'  endIcon={<ArrowRightAltIcon />} >Learn More</Button>
                     </Box>  
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/home.png'} alt="ecg" className={classes.logo} />   
+                        <img src={'/static/home.png'} alt="ecg" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             Location : Lalitpur
                         </Typography>
@@ -152,7 +152,7 @@ const Monetory = () => {
                 <Box borderRadius="0%" {...testProps} >
                     
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/gofundme.png'} alt="ecg" className={classes.logo} />   
+                        <img src={'/static/gofundme.png'} alt="ecg" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                            ID : 9849903406
                         </Typography>
@@ -162,7 +162,7 @@ const Monetory = () => {
                         <Button variant="default" size="large" color='inherit'  endIcon={<ArrowRightAltIcon />} >Learn More</Button>
                     </Box>      
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/NIC.png'} alt="ecg" className={classes.logo} />   
+                        <img src={'/static/NIC.png'} alt="ecg" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             ID : 1234567890
 
@@ -176,7 +176,7 @@ const Monetory = () => {
                         <Button variant="default" size="large" color='inherit'  endIcon={<ArrowRightAltIcon />} >Learn More</Button>
                     </Box>  
                     <Box borderRadius="5%" {...circleProps}>
-                        <img src={'/pnga.png'} alt="ecg" className={classes.logo} />   
+                        <img src={'/static/pnga.png'} alt="ecg" className={classes.logo} />   
                         <Typography gutterBottom variant="h5" component="h2">
                             ID: 0987654321
                         </Typography>
