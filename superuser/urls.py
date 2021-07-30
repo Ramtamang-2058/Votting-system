@@ -29,8 +29,8 @@ if settings.DEBUG:
                               document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [
-    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
-    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+    path('jet/', include('jet.urls', 'jet')), 
+    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     path('admin/', admin.site.urls),
     path('about/', include('about.urls')),
     path('',TemplateView.as_view(template_name='index.html')),
