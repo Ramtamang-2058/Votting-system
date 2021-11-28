@@ -51,12 +51,11 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+#    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -116,9 +115,16 @@ REST_FRAMEWORK = {
 
 }
 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = (
+    'https://mot.naxa.com.np',
+    'http://mot.naxa.com.np',
     'http://127.0.0.1:8000',
+    'http://127.0.0.1:3000',
+    'https://missionoxygenteam.org',
+    'http://missionoxygenteam.org',
+    'http://localhost:3000',
+    'https://mot.naxa.com.np',
 )
 
 # Password validation
@@ -153,8 +159,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
 
 # MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # MEDIA_URL = 'media/'
@@ -168,8 +174,17 @@ MEDIA_URL = '/media/'
 
 # ]
 
-STATIC_ROOT = '/static/'
+# STATIC_ROOT = '/static/'
+# STATIC_URL = '/static/'
+
+# ewsdashboard config
+
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'media'),)
+
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

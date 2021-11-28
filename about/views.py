@@ -9,30 +9,34 @@ from .serializers import (TeamSerializer,
                         EquipmentEnglishSerializer,
                         EquipmentNepaliSerializer,
                         ResourceEnglishSerializer,
-                        ResourceNepaliSerializer
+                        ResourceNepaliSerializer,
+                        AchievementEnglishSerializer,
+                        AchievementNepaliSerializer,
+                        SolveEnglishSerializer,
+                        SolveNepaliSerializer
                         )
 from rest_framework import viewsets
-from .models import Team, Organization, Hospital, Equipment, Resource
+from .models import Team, Organization, Hospital, Equipment, Resource, Achievement, Solve
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny
 
 class TeamLeadsView(viewsets.ModelViewSet):
-    queryset = Team.objects.filter(is_approved=True, member_type='L')
+    queryset = Team.objects.filter(is_approved=True, member_type='T')
     serializer_class = TeamSerializer
     ordering = ['-id']
 
 class TeamMembersView(viewsets.ModelViewSet):
-    queryset = Team.objects.filter(is_approved=True)
+    queryset = Team.objects.filter(is_approved=True).exclude(member_type='T')
     serializer_class = TeamSerializer
     ordering = ['-id']
 
 class TeamLeadsNepaliView(viewsets.ModelViewSet):
-    queryset = Team.objects.filter(is_approved=True, member_type='L')
+    queryset = Team.objects.filter(is_approved=True, member_type='T')
     serializer_class = TeamNepaliSerializer
     ordering = ['-id']
 
 class TeamMembersNepaliView(viewsets.ModelViewSet):
-    queryset = Team.objects.filter(is_approved=True)
+    queryset = Team.objects.filter(is_approved=True).exclude(member_type='T')
     serializer_class = TeamNepaliSerializer
     ordering = ['-id']
 
@@ -54,12 +58,12 @@ class OrganizationNepaliView(viewsets.ModelViewSet):
 class HospitalEnglishView(viewsets.ModelViewSet):
     queryset = Hospital.objects.all()
     serializer_class = HospitalEnglishSerializer
-    ordering = ['-id']
+    ordering = ['province']
 
 class HospitalNepaliView(viewsets.ModelViewSet):
     queryset = Hospital.objects.all()
     serializer_class = HospitalNepaliSerializer
-    ordering = ['-id']
+    ordering = ['province']
 
 
 class EquipmentEnglishView(viewsets.ModelViewSet):
@@ -85,7 +89,30 @@ class ResourceNepaliView(viewsets.ModelViewSet):
     serializer_class = ResourceNepaliSerializer
     ordering = ['-id']
     
+class AchievementNepaliView(viewsets.ModelViewSet):
+    queryset = Achievement.objects.all()
+    serializer_class = AchievementNepaliSerializer
 
+    ordering = ['-id']
+
+class AchievementEnglishView(viewsets.ModelViewSet):
+    queryset = Achievement.objects.all()
+    serializer_class = AchievementEnglishSerializer
+
+    ordering = ['-id']  
+
+
+class SolveEnglishView(viewsets.ModelViewSet):
+    queryset = Solve.objects.all()
+    serializer_class = SolveEnglishSerializer
+
+    ordering = ['-id']  
+
+class SolveNepaliView(viewsets.ModelViewSet):
+    queryset = Solve.objects.all()
+    serializer_class = SolveNepaliSerializer
+
+    ordering = ['-id']  
 
 
 

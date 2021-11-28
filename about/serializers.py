@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Team, Organization, Hospital, Equipment, Resource
+from .models import Team, Organization, Hospital, Equipment, Resource, Achievement, Solve
 
 
 class TeamSerializer(serializers.ModelSerializer):
@@ -109,42 +109,9 @@ class TeamNepaliSerializer(serializers.ModelSerializer):
             'edited_date',
         ]
 
-class HospitalEnglishSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Hospital
-        fields = [
-            'id',
-            'name',
-            'contact_number',
-            'contact_email',
-            'province',
-            'address',
-            'created_date',
-            'edited_date'
-        ]
-
-class HospitalNepaliSerializer(serializers.ModelSerializer):
-    name = serializers.CharField(source='name_np')
-    contact_number = serializers.CharField(source='contact_number_np')
-    contact_email = serializers.CharField(source='contact_email_np')
-    province = serializers.CharField(source='province_np')
-    address = serializers.CharField(source='address_np')
-
-    class Meta:
-        model = Hospital
-        fields = [
-            'id',
-            'name',
-            'contact_number',
-            'contact_email',
-            'province',
-            'address',
-            'created_date',
-            'edited_date'
-        ]
-
-
 class EquipmentEnglishSerializer(serializers.ModelSerializer):
+    hospital_info = serializers.SerializerMethodField('get_hospital_name')
+
     class Meta:
         model = Equipment
         fields = [
@@ -157,10 +124,23 @@ class EquipmentEnglishSerializer(serializers.ModelSerializer):
             'suppliers',
             'remarks',
             'created_date',
-            'edited_date'
+            'edited_date',
+            'hospital_info',
+            'eqiupment_status'
         ]
 
+    def get_hospital_name(self, equipment):
+        request = self.context.get('request')
+        data = {
+                'hospital_id': equipment.hospital.id,
+                'hospital_name': equipment.hospital.name,
+
+        }
+        return data
+
 class EquipmentNepaliSerializer(serializers.ModelSerializer):
+    hospital_info = serializers.SerializerMethodField('get_hospital_name')
+
     equipment_type = serializers.CharField(source='equipment_type_np')
     unit = serializers.CharField(source='unit_np')
     company_name = serializers.CharField(source='company_name_np')
@@ -180,8 +160,89 @@ class EquipmentNepaliSerializer(serializers.ModelSerializer):
             'suppliers',
             'remarks',
             'created_date',
+            'edited_date',
+            'hospital_info',
+            'eqiupment_status'
+        ]
+
+        
+    def get_hospital_name(self, equipment):
+        request = self.context.get('request')
+        data = {
+                'hospital_id': equipment.hospital.id,
+                'hospital_name': equipment.hospital.name,
+
+        }
+        return data
+        
+class HospitalEnglishSerializer(serializers.ModelSerializer):
+    equipments = EquipmentEnglishSerializer(many=True, read_only=True)
+    
+    class Meta:
+        model = Hospital
+        fields = [
+            'id',
+            'name',
+            'contact_number',
+            'contact_email',
+            'province',
+            'district',
+            'municipality',
+            'ward',
+            'address',
+            'equipments',
+            'created_date',
             'edited_date'
         ]
+
+class HospitalNepaliSerializer(serializers.ModelSerializer):
+    equipments = EquipmentNepaliSerializer(many=True, read_only=True)
+    # name = serializers.CharField(source='name_np')
+    # contact_number = serializers.CharField(source='contact_number_np')
+    # contact_email = serializers.CharField(source='contact_email_np')
+    province = serializers.SerializerMethodField()
+    # address = serializers.CharField(source='address_np')
+    ward = serializers.SerializerMethodField()
+    municipality = serializers.SerializerMethodField()
+    district = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Hospital
+        fields = [
+            'id',
+            'name',
+            'contact_number',
+            'contact_email',
+            'province',
+            'district',
+            'municipality',
+            'ward',
+            'address',
+            'equipments',
+            'created_date',
+            'edited_date'
+        ]
+
+    def get_district(self,obj):
+        if obj.district:
+            return obj.district.name
+        return None
+
+    def get_municipality(self,obj):
+        if obj.municipality:
+            return obj.municipality.name
+        return None
+
+    def get_ward(self,obj):
+        if obj.ward:
+            return obj.ward.name
+        return None
+
+    def get_province(self,obj):
+        if obj.province:
+            return obj.province.name
+        return None
+
 
 class ResourceEnglishSerializer(serializers.ModelSerializer):
     class Meta:
@@ -233,8 +294,67 @@ class ResourceNepaliSerializer(serializers.ModelSerializer):
 
 
 
+class AchievementEnglishSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Achievement
+        fields = [
+            'id',            
+            'title',
+            'number',
+            'created_date'
+        ]
 
 
+
+
+class AchievementNepaliSerializer(serializers.ModelSerializer):
+    title = serializers.CharField(source='title_np')
+
+    class Meta:
+        model = Achievement
+        fields = [
+            'id',            
+            'title',
+            'number',
+            'created_date'
+        ]
+        
+        
+
+class SolveEnglishSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Solve
+        fields = [
+            'id',
+            'request_from',            
+            'request_for',
+            'support_provided',
+            'created_date',
+            'edited_date',
+            'image',
+            'document'
+
+        ]
+
+class SolveNepaliSerializer(serializers.ModelSerializer):
+    request_from = serializers.CharField(source='request_from_np')
+    request_for = serializers.CharField(source='request_for_np')
+    support_provided = serializers.CharField(source='support_provided_np')
+    details = serializers.CharField(source='details_np')
+
+    class Meta:
+        model = Solve
+        fields = [
+            'id',
+            'request_from',            
+            'request_for',
+            'support_provided',
+            'created_date',
+            'edited_date',
+            'image',
+            'document'
+
+        ]
 
 
 

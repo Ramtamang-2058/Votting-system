@@ -12,7 +12,12 @@ from .views import (TeamLeadsView,
                     EquipmentEnglishView,
                     EquipmentNepaliView,
                     ResourceEnglishView,
-                    ResourceNepaliView)
+                    ResourceNepaliView,
+                    AchievementNepaliView,
+                    AchievementEnglishView,
+                    SolveEnglishView,
+                    SolveNepaliView)
+
 
 route = routers.DefaultRouter()
 route.register('post_members', TeamView)
@@ -28,7 +33,10 @@ route.register('equipment/en', EquipmentEnglishView)
 route.register('equipment/np', EquipmentNepaliView)
 route.register('resource/en', ResourceEnglishView)
 route.register('resource/np', ResourceNepaliView)
-
+route.register('achievement/np', AchievementNepaliView)
+route.register('achievement/en', AchievementEnglishView)
+route.register('solve/en', SolveEnglishView)
+route.register('solve/np', SolveNepaliView)
 
 
 urlpatterns = [
