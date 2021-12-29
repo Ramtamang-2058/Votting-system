@@ -18,11 +18,12 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 admin.site.site_header = 'Robotics Association of Nepal'
 
 urlpatterns = [
-    path('jet/', include('jet.urls', 'jet')), 
+    path('jet/', include('jet.urls', 'jet')),
     path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     path('admin/', admin.site.urls),
     path('about/', include('about.urls')),

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    # 'rest_framework.authtoken',
+    'rest_framework.authtoken',
     'corsheaders',
 
     'about',
@@ -158,7 +158,21 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+# Default primary key field type
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'emart4850476@gmail.com'
+EMAIL_HOST_PASSWORD = 'ramtamang123'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL =False
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER ='ran.ramtamang@gmail.com'
+# EMAIL_HOST_PASSWORD = '@dmin123'
+# DEFAULT_FROM_EMAIL ='ram.tamang2058@gmail.com>'
 # MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 # MEDIA_URL = '/media/'
 
